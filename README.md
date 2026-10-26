@@ -12,3 +12,6 @@ Right now, we only have the binary search page, and the index.html.
 Later, more should be added.
 
 For now, open index.html, and then you can open the lesson you want from it (I know it's just one, but still, it's better that way).
+
+To open it, download the ZIP file, extract it, and open index.html.
+Unfortunately, I am currently still working on making it easy to use on the desktop, so preferrably, resize your window to a portrait mobile ratio. Probably next time will be making it more compatible.
