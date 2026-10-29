@@ -1,6 +1,13 @@
+/* I marked the fully AI generated code as AI, and also a small amount of the code (mainly for being desktop friendly, since it looked way better on like a tablet or phone than a desktop, were assisted by AI)  */
+
 :root{
     --normal-font-color: rgb(25, 25, 25);
+    --normal-bg-color: #edf5ff;
+    --overlay-bg-color: #939eac;
+    --terminal-bg-color: #2d3748;
+
 }
+
 
 html::-webkit-scrollbar, 
 body::-webkit-scrollbar {
@@ -13,11 +20,14 @@ html, body {
 }
 
 
+*, *::before, *::after {
+    box-sizing: border-box; /* AI recommended */
+}
+
 body{
     text-align: center;
     color: var(--normal-font-color);
-    background-color: #edf5ff;
-    background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%23c3d9f9' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-color: var(--normal-bg-color);
     font-family: "Poppins", sans-serif;
 }
 
@@ -29,6 +39,9 @@ a{
 section{
     min-height: 100vh;
     padding: 2em;
+    width: min(900px, 100%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #start{
@@ -50,6 +63,9 @@ section{
     margin-bottom: 1em;
     font-family: "Poppins", sans-serif;
     font-size: 15vw;
+
+    font-size: clamp(2.5rem, 8vw, 5rem);
+
 }
 
 #start a{
@@ -98,6 +114,7 @@ section{
 
         border:0;
     }
+    
 }
 
 /* The following classes were done by AI, to do the sticky scroll reveal. */
@@ -110,6 +127,10 @@ section{
 
 .explanation-pin {
     position: sticky;
+
+    top: var(--navbar-height, 0px); /* AI recommended: keep the panel below the sticky navbar */
+    height: calc(100vh - var(--navbar-height, 0px)); /* AI recommended */
+
     top: 0;
     height: 100vh;
     box-sizing: border-box;
@@ -136,7 +157,7 @@ section{
 .explanation.released .explanation-pin {
     position: static;
     height: auto;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--navbar-height, 0px));
     overflow: visible;
 }
 
@@ -148,15 +169,17 @@ section{
 /*AI ends here*/
 
 pre{
-    background-color: #2d3748;
-    color: #f7fafc;
+    background-color: var(--terminal-bg-color);
+    color: whitesmoke;
     border-radius: 5px;
     padding: 20px;
     text-wrap: pretty;
+    white-space: pre-wrap; /* AI recommended: lets long code lines wrap instead of overflowing */
+    overflow-wrap: anywhere; /* AI recommended */
 }
 
 #explanation2 i{
-    color: #8b96a8;
+    color: var(--normal-font-color);
     letter-spacing: 0;
 }
 
@@ -205,7 +228,7 @@ pre{
     align-items: center;
     border: 2px solid #b8d5ff;
     border-radius: 12px;
-    background: #e0edff;
+    background:var(--normal-bg-color);;
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: 600;
     transition:
@@ -291,14 +314,21 @@ td {
     border-bottom: 1px solid #2d3748;
     border-right: 1px solid #2d3748;
     padding: .5em;
+    /* font-size: clamp(10px, 100%, 30px); */
+    font-size: clamp(10px, 100%, 3.5vw);
 }
 
 table{
     border-collapse: collapse;
-    margin: 50px;
+    table-layout: fixed;
+    width: 100%;
 }
 
 td:hover{
+    background-color: #89b2e731;
+}
+
+tr:hover{
     background-color: #89b2e731;
 }
 
@@ -312,6 +342,9 @@ section p{
 
 .question{
     margin: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .question-text{
@@ -319,33 +352,53 @@ section p{
 }
 
 input{
-    border: 2px solid #1073fb;
     border-radius: 10px;
     padding: 1em;
-    width: 95%;
+    width: 100%;
     margin: 1em;
+    font-family: "VT323", monospace;
+    font-size: larger;
 }
 
-input:focus{
+/* input:focus{
     background-color: #e7f2ffe3;
 }
 
 input:hover{
     background-color: #89b2e731;
+} */
+
+#answer {
+    height: 50px;
+    border-radius: 50%;
+    corner-shape: superellipse(4.00);
+    background-color: var(--terminal-bg-color);
+    color: #939eac;
 }
+
+#answer:focus{
+    background-color: #14171be3;
+    outline: 1px solid rgb(10, 10, 10);
+}
+
+#answer:hover{
+    background-color: #1f2833c7;
+}
+
 
 #result{
     text-align: center;
     font-weight: bold;
 }
 
-ul {
+#navbar {
     list-style: none;
     background-color: #2d37484d;
     backdrop-filter: blur(100px) saturate(180%);
     -webkit-backdrop-filter: blur(100px) saturate(180%);
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 0;
     z-index: 9999;
@@ -353,24 +406,58 @@ ul {
 
     position: sticky;
     top: 0;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
 }
 
-ul li {
-    float: left;
+#navbar li {
+    float: none;
 }
 
-ul li a {
+#navbar li a {
     display: block;
     color: whitesmoke;
     padding: 14px 16px;
 
     transition: transform 0.3s ease;
-
-
 }
 
-ul li a:hover{
+#navbar li a:hover{
     transform: scale(1.2);
 }
+
+
+::selection {
+    background: #c48888;
+    color: rgb(20, 15, 6);
+}
+
+/* ::selection .popuptext{
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+} */
