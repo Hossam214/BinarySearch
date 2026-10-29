@@ -461,3 +461,24 @@ input:hover{
     from {opacity: 0;}
     to {opacity:1 ;}
 } */
+
+#nextstep{
+    display: flex;
+    justify-content: space-around;
+    
+    button{
+        height: 50px;
+        border-radius: 100%;
+        corner-shape: superellipse(4);
+        background-color: var(--terminal-bg-color);
+        a{
+            color: #dfe5ec;
+        }
+    }
+}
+
+.inlineref{
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: --terminal-bg-color;
+}

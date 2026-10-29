@@ -232,6 +232,7 @@ btn = document.getElementById("btn");
 next = document.getElementById("Next");
 result = document.getElementById("result");
 feedbck = document.getElementById("feedback");
+nextstep = document.getElementById("nextstep");
 
 input.addEventListener("keypress", function(event) {
     if (event.key === "Enter"){
@@ -327,11 +328,9 @@ function incrementQ(){
         else if (percent < 100) {feedbck.textContent = "Seems like somebody was focusing";}
         else if (percent == 100) {feedbck.textContent = "OMG, you're a nerd! You aced it. Winner Winner Chicken Dinner!!";}
         
-        next.style.display = "block";
-        // next.innerHTML = <a></a>;
+        nextstep.innerHTML = "<button><a href='lowerupperbound.html'>Go to builtin functions</a></button>  <button><a href='lowerupperbound.html'>Next Lesson</a></button>";
     }
 }
-
 
 // ------ QUIZ CODE ENDS HERE ------
 // Now let's attempt a dark mode
