@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Binary Search</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Sharp:ital,wght@0,100..900;1,100..900&family=Rancho&family=Roboto:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <section id="start">
+        <div id="start-content">
+            <h1>lower_bound vs upper_bound()</h1>
+            <div id="start-enter-button">
+                <a href="#explanation">
+                    Click here to start learning
+                    <div id="lottieAnim">
+                        <script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
+                        <dotlottie-wc src="https://lottie.host/d700508a-823e-4070-8089-dc0a08df1420/W5ry4aFqyL.lottie
+    " autoplay loop></dotlottie-wc>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="explanation" id="lowerboundexplanation">
+        <div id="explanation-pin" class="explanation-pin">
+            <p>Now that you know what <a href="BinarySearch.html" class="inlineref">binary search</a> is, let's explore the built-in C++ functions that use it.</p>
+            <p>The lower bound function works by finding the first value that is not higher than the target. As we know the list is already sorted, so it uses binary search, to find the highest number accepting the condition. The "first value" means that if the list is {10, 20, 30, 30, 40, 50} and the right number is 30, it will return the index of the first 30 and not any of the others.</p>
+            <p>This means that the function returns an iterator and not a value.</p>
+            <p>Below we will explore some of its capabalities and the syntax.</p>
+        </div>
+    </section>
+    <section class="explanation" id="lowerboundcode">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Code</h1>
+            <p>This is the lower bound syntax.</p>
+            <pre>
+vector<int> v = {10, 30, 31, 40}
+int answer = *lower_bound(v.begin(), v.end(), 30);
+</pre>
+            <p>Honestly, I recommend learning the basics of C++ if you haven't already, but I will still do my best to explain it to you as beginner-friendly way as possible</p>
+            <p>First of all, a vector. The function needs a vector to work properly. A vector is basically an array on steroids. It does not need a fixed size. Instead you can add or remove elements to and from it quite easily. Many C++ functions need a vector to work.</p>
+            <p>Lots of those functions though, do not return the straightforward answer. That's actually quite smart as we will see. Instead, they return an iterator. We do not typically use them as they are, and to access them, we use the dereference operator. It's job is to find the value that the iterator is pointing to. Imagine the function is a person, who solves equations. Instead of telling you the answer, he draws an arrow towards the answer. That is the iterator. With the arrow alone, you cannot make sense, but with the whole picture you see where the arrow is pointing and understand.</p>
+            <p>Now, that we understand the iterator logic, let's look once more at the second line.</p>
+            <p>We have an asterisk (*) before the function. That is the dereference operator. Then we have the function itself. It has 3 arguements. The first one is the beginning of the search range. Then the end of it. Then the target.</p>
+            <p>That's it actually...</p>
+            <p>Next, we'll take a look at upper_bound...</p>
+        </div>
+    </section>
+
+    
+
+        <script src="script.js"></script>
+</body>
