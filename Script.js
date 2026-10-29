@@ -326,6 +326,53 @@ function incrementQ(){
         else if (percent < 75) {feedbck.textContent = "Well, at least you passed";}
         else if (percent < 100) {feedbck.textContent = "Seems like somebody was focusing";}
         else if (percent == 100) {feedbck.textContent = "OMG, you're a nerd! You aced it. Winner Winner Chicken Dinner!!";}
-            
+        
+        next.style.display = "block";
+        // next.innerHTML = <a></a>;
     }
 }
+
+
+// ------ QUIZ CODE ENDS HERE ------
+// Now let's attempt a dark mode
+
+nightButton = document.getElementById("NightMode");
+let body = document.body;
+let dark = false;
+
+function darkControl() {
+    if (!dark){
+        body.style.cssText = "--normal-font-color: #edf5ff; --normal-bg-color: rgb(25, 25, 25)";
+        dark = true;
+    } else{
+        body.style.cssText = "--normal-font-color: rgb(25, 25, 25); --normal-bg-color: #edf5ff";
+        dark=false;
+    }
+}
+
+
+// function myFunction() {
+//     var popup = document.getElementById("myPopup");
+//     popup.classList.toggle("show");
+// }
+
+// function getSelectionText() {
+//     let text = "";
+//     const activeEl = document.activeElement;
+//     const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+
+//     if (
+//         (activeElTagName == "textarea") || (activeElTagName == "input" &&
+//         /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) &&
+//         (typeof activeEl.selectionStart == "number")
+//     ) {
+//         text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+//     } else if (window.getSelection) {
+//         text = window.getSelection().toString();
+//     }
+
+//     return text;
+// }
+
+// document.onmouseup = document.onkeyup = document.onselectionchange = myFunction();
+
