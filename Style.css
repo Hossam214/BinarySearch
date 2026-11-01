@@ -255,6 +255,7 @@ pre{
 
 .demo-number.removed {
     opacity: 0.25;
+    filter: drop-shadow(0 0);
     background: #cbd5e1;
     border-color: #cbd5e1;
     transform: scale(0.92);
@@ -276,7 +277,9 @@ pre{
 }
 
 .demo-controls button:disabled {
-    opacity: 0.4;
+    opacity: 1;
+    background-color: #d1d5db;
+    color: #475569;
     cursor: not-allowed;
 }
 
@@ -561,4 +564,3 @@ button:hover{
 .keyGuide svg{
     width: .8em;
 }
-
