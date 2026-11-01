@@ -2,10 +2,12 @@
 
 :root{
     --normal-font-color: rgb(25, 25, 25);
-    --normal-bg-color: #edf5ff;
+    --normal-bg-color: #f0f3f7;
     --overlay-bg-color: #939eac;
     --terminal-bg-color: #2d3748;
-
+    --terminal-font-color: whitesmoke;
+    --black: rgb(25, 25, 25);
+    --white: whitesmoke;
 }
 
 
@@ -170,7 +172,7 @@ section{
 
 pre{
     background-color: var(--terminal-bg-color);
-    color: whitesmoke;
+    color: var(--terminal-font-color);
     border-radius: 5px;
     padding: 20px;
     text-wrap: pretty;
@@ -273,16 +275,6 @@ pre{
     gap: 12px;
 }
 
-button {
-    font: inherit;
-    padding: 0.75em 1.2em;
-    border: 0;
-    border-radius: 10px;
-    background: #3984f6;
-    color: white;
-    cursor: pointer;
-}
-
 .demo-controls button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -351,7 +343,8 @@ section p{
     font-weight: 800;
 }
 
-input{
+input, 
+button{
     border-radius: 10px;
     padding: 1em;
     width: 100%;
@@ -416,7 +409,7 @@ input:hover{
 
 #navbar li a {
     display: block;
-    color: whitesmoke;
+    color: var(--terminal-font-color);
     padding: 14px 16px;
 
     transition: transform 0.3s ease;
@@ -465,16 +458,6 @@ input:hover{
 #nextstep{
     display: flex;
     justify-content: space-around;
-    
-    button{
-        height: 50px;
-        border-radius: 100%;
-        corner-shape: superellipse(4);
-        background-color: var(--terminal-bg-color);
-        a{
-            color: #dfe5ec;
-        }
-    }
 }
 
 .inlineref{
@@ -482,3 +465,100 @@ input:hover{
     text-decoration-style: dotted;
     text-decoration-color: --terminal-bg-color;
 }
+
+#NightMode img{
+    width: 80px;
+    height: 80px;
+
+    z-index: 9999;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+@keyframes correct {
+    100% {background-color: green; color: white;}
+}
+@keyframes incorrect {
+    100% {background-color: rgb(168, 0, 0); color: white;}
+}
+@keyframes buttonHover {
+    100% {
+        filter: drop-shadow(0 10px);
+        transform: translate(0, -5px);
+        background-color: absolute;
+    }
+}
+
+.correct{
+    animation-name: correct;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+.incorrect{
+    animation-name: incorrect;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+#next{
+    background-color: var(--terminal-bg-color);
+    color: var(--terminal-font-color);
+}
+
+.gridQuiz{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    button{
+        width: 85%;
+    }
+}
+
+button{
+    filter: drop-shadow(0 5px var(--black));
+}
+
+button:hover{
+    animation-name: buttonHover;
+    animation-duration: 1ms;
+    animation-fill-mode: forwards;
+}
+
+
+/* W MEMRISE for this great inspiration!!!! They just made me reverse engineer their website to make this. I was stupidly thinking I had to make vectors, and overlay them but it turned out way easier. */
+.keyGuide{
+    background-color: var(--black);
+    /* background-color: greenyellow; */
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    color: var(--white);
+    flex-shrink: 0;
+    font-size: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: calc(50% - 0.75rem);
+    align-items: center;
+
+}
+@media (max-width: 768px) {
+    .keyGuide{display: none;}
+}
+@media (max-width: 500px) {
+    button{font-size:5vw;}
+}
+
+.keyGuide svg{
+    width: .8em;
+}
+

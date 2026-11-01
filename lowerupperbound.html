@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Binary Search</title>
+    <title>Lower vs Upper Bound</title>
     <link rel="stylesheet" href="Style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">    
     <link href="https://fonts.googleapis.com/css2?family=Asap+Sharp:ital,wght@0,100..900;1,100..900&family=Rancho&family=Roboto:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
@@ -25,6 +25,8 @@
         </div>
     </section>
 
+    <div class="nighty"></div>
+
     <section class="explanation" id="lowerboundexplanation">
         <div id="explanation-pin" class="explanation-pin">
             <p>Now that you know what <a href="BinarySearch.html" class="inlineref">binary search</a> is, let's explore the built-in C++ functions that use it.</p>
@@ -33,6 +35,7 @@
             <p>Below we will explore some of its capabalities and the syntax.</p>
         </div>
     </section>
+
     <section class="explanation" id="lowerboundcode">
         <div id="explanation-pin2" class="explanation-pin">
             <h1>Code</h1>
@@ -47,11 +50,58 @@ int answer = *lower_bound(v.begin(), v.end(), 30);
             <p>Now, that we understand the iterator logic, let's look once more at the second line.</p>
             <p>We have an asterisk (*) before the function. That is the dereference operator. Then we have the function itself. It has 3 arguements. The first one is the beginning of the search range. Then the end of it. Then the target.</p>
             <p>That's it actually...</p>
+            <p>Oh, but what happens if it finds nothing? It returns v.end. Obviously, v is the name of the vector so if it was called Collywobbles, it would return Collywobbles.end. <i>Don't call it Collywobbles though.</i> So you should check using if ("thefunctionresult" != v.end)</p>
             <p>Next, we'll take a look at upper_bound...</p>
         </div>
     </section>
 
+    <section class="explanation" id="upperboundexplanation">
+        <div id="explanation-pin" class="explanation-pin">
+            <p>Next, we'll take a look at the upper bound function</p>
+            <p>The upper bound is extremely similar to the lower bound..</p>The condition is different. In lower bound, the target can be equal to the output, while the upper bound cannot.
+            <p>The main difference is the first value that is greater than the target. </p>
+            <p>For example {1, 2, 3, 4, 5} upper_bound 3 is going to be 4</p>
+        </div>
+    </section>
     
+    <section class="explanation" id="upperboundcode">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Code</h1>
+            <p>This is the upper bound syntax.</p>
+            <pre>
+vector<int> v = {10, 30, 31, 40}
+int answer = *upper_bound(v.begin(), v.end(), 30);
+</pre>
+            <p>As you saw, it the same idea, and syntax, but the result will be different (31).</p>
+            <p>Next you will solve a quiz to check your understanding..</p>
+        </div>
+    </section>
 
-        <script src="script.js"></script>
+    <section class="explanation" id="upperlowerboundquiz">
+        <div class="explanation-pin">
+            <h1>Quiz</h1>
+            <p id="question"></p>
+            <div class="gridQuiz">
+                <div class="row">
+                    <button id="buttonChoice1" onclick="choose(1)"><div class="keyGuide">1</div><div id="Choice1">Choice 1</div></button>
+                    <button id="buttonChoice2" onclick="choose(2)"><div class="keyGuide">2</div><div id="Choice2">Choice 2</div></button>
+                </div>
+                <div class="row">
+                    <button id="buttonChoice3" onclick="choose(3)"><div class="keyGuide">3</div><div id="Choice3">Choice 3</div></button>
+                    <button id="buttonChoice4" onclick="choose(4)"><div class="keyGuide">4</div><div id="Choice4">Choice 4</div></button>
+                </div>
+            </div>
+            <button id="next" onclick="nextQ()">
+                <div class="keyGuide">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="90 90 120 120"><rect id="rect-ko2gya5arrj" fill="none" width="99.122354" height="99.122354" rx="26" ry="26" stroke="rgb(255,255,255)" stroke-width="15" transform="translate(100.438823 100.438823)"></rect><path id="path-5sw2l12smkr" d="M128.08232,129.746093L128.08232,162.481814L172.081945,162.481814L159.68109,150.08096" fill="none" stroke="rgb(255,255,255)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M172.081945,162.481814L158.489581,176.074179L172.081945,162.481814Z" fill="none" stroke="rgb(255,255,255)" stroke-width="8" id="path-e7uxilf4d5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </div>
+                <div>Continue</div>
+            </button>
+            <p id="Done"></p>
+            <p id="feedback"></p>
+        </div>
+    </section>
+    
+    <script src="MCQQuiz.js"></script>
+    <script src="script.js"></script>
 </body>

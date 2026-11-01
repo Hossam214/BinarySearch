@@ -8,10 +8,11 @@ Also, while I was in the course, many concepts felt too advanced in the beginnin
 
 Even if, it just needed you to read it a few times, and then you got it. I want this as easy as possible for ANYONE.
 
-Right now, we only have the binary search page, and the index.html.
+Right now, we have the binary search page, lowerupperbound and the index.html.
+
 Later, more should be added.
+Have fun then.
 
-For now, open index.html, and then you can open the lesson you want from it (I know it's just one, but still, it's better that way).
+When you're done, go back and fire me an email from index.html, to tell me your feedback. I really appreciate anything, since I am quite ambitious with this project, and it is far from finished.
 
-To open it, download the ZIP file, extract it, and open index.html.
-Unfortunately, I am currently still working on making it easy to use on the desktop, so preferrably, resize your window to a portrait mobile ratio. Probably next time will be making it more compatible.
+OK just open my vercel demo. That's it. 
