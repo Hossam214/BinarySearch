@@ -101,6 +101,7 @@ function choose(x){
     }
     buttons[MCQanswers[progress]-1].classList.add('correct');
     next.style.display = "block";
+    next.focus();
 }
 
 let finished = false;        
