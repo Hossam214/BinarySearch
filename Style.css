@@ -480,17 +480,13 @@ input:hover{
 }
 
 @keyframes correct {
-    100% {background-color: green; color: white;}
+    100% {background-color: green; color: white; filter: drop-shadow(0 5px var(--black));
+}
+    
 }
 @keyframes incorrect {
-    100% {background-color: rgb(168, 0, 0); color: white;}
+    100% {background-color: rgb(168, 0, 0); color: white; filter: drop-shadow(0 5px var(--black));
 }
-@keyframes buttonHover {
-    100% {
-        filter: drop-shadow(0 10px);
-        transform: translate(0, -5px);
-        background-color: absolute;
-    }
 }
 
 .correct{
@@ -529,9 +525,10 @@ button{
 }
 
 button:hover{
-    animation-name: buttonHover;
-    animation-duration: 1ms;
-    animation-fill-mode: forwards;
+    filter: drop-shadow(0 10px);
+    transform: translate(0, -5px);
+    background-color: absolute;
+    
 }
 
 
