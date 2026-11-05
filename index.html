@@ -5,18 +5,51 @@
 </head>
 
 <body>
-    <h1>Hello, There</h1>
-    <p>Here you can find all the lessons</p>
+    <h1>Hello, <span id="nameGreeting">there</span></h1>
+    <p>Welcome to your dashboard</p>
     <p>For now though, there is only one</p>
     <p>Let's get started</p>
 
-    <a href="BinarySearch.html">Binary Search</a>
+    <div id="nighty"></div>
 
-    <p>You can rate the website and tell me your recommendations by sending it here. It's still under development, so any feedback is appreciated</p>
-    <form action="https://formsubmit.co/hossam.m.m.tawfik@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="your name" required>
-        <input type="email" name="email" placeholder="your email" required>
-        <input type="text" name="message" placeholder="your message" required>
-        <button type="submit">Send</button>
-    </form>
+    <div id="entrytable">
+        <table id="progress">
+            <h2>Binary Search</h2>
+            <tr>
+                <td><a href="BinarySearch.html">Binary Search</a></td>
+                
+            </tr>
+            <tr>
+                <td><a href="lowerupperbound.html">Upper Bound vs Lower Bound</a></td>
+                
+            </tr>
+        </table>
+        <table>
+            <h2>Number Theory</h2>
+            <tr>
+                <td><a href="primenumbers.html">Finding Prime Numbers</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Sieve of Eratosthenes</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Prime Factorisation</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">GCD & LCM</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <p>Do you have feedback? Fire me a message at @hossam_tawfik on Slack, send me an email on hossam.m.m.tawfik@gmail.com or inside Github. I really value your feedback</p>
+
+    <script>
+        if (localStorage.getItem("username") === null && location.href != 'newaccount.html') {
+            location.href = 'newaccount.html';
+        }
+    </script>
+
+    <!-- I dunno ¯\_(ツ)_/¯ -->
+    <script src="indexCode.js"></script>
+    <script src="script.js"></script>
 </body>

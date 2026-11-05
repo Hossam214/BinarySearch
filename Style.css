@@ -2,12 +2,12 @@
 
 :root{
     --normal-font-color: rgb(25, 25, 25);
-    --normal-bg-color: #f0f3f7;
+    --normal-bg-color: #eae9ea;
     --overlay-bg-color: #939eac;
     --terminal-bg-color: #2d3748;
     --terminal-font-color: whitesmoke;
     --black: rgb(25, 25, 25);
-    --white: whitesmoke;
+    --white: #f1f1f1;
 }
 
 
@@ -351,7 +351,7 @@ button{
     border-radius: 10px;
     padding: 1em;
     width: 100%;
-    margin: 1em;
+    margin: 1em 0 1em 0;
     font-family: "VT323", monospace;
     font-size: larger;
 }
@@ -517,6 +517,7 @@ input:hover{
     flex-direction: row;
     button{
         width: 85%;
+        margin: 1em;
     }
 }
 
@@ -525,10 +526,14 @@ button{
 }
 
 button:hover{
-    filter: drop-shadow(0 10px);
+    filter: drop-shadow(0 10px var(--black));
     transform: translate(0, -5px);
     background-color: absolute;
-    
+}
+
+button:active{
+    transform: translateY(5px);
+    filter: drop-shadow(0 5px);
 }
 
 
@@ -560,4 +565,89 @@ button:hover{
 
 .keyGuide svg{
     width: .8em;
+}
+
+.sidenav{
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: var(--terminal-bg-color);
+    transition: 0.5s;
+    width: 0;
+
+
+    /* (⊙ˍ⊙) */
+    /* Stupid me didn't write this overflow line, thinking it was irrelevant, but AI told me otherwise. It sure is relevant, because without it the <a> stay outside the navbar */
+
+    overflow-x: hidden; 
+
+    a{
+        display: block;
+    }
+
+}
+
+.menu-toggle{
+    position: fixed;
+    left: 0;
+    top: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: end;
+    filter: drop-shadow(-3px 5px 5px var(--black));
+
+    z-index: 10000;    /* Solution to bug provided by AI */
+
+    iframe{
+        width: 50px;
+        height: 50px;
+        border: 0;
+
+        pointer-events: none; /* Solution to same bug provided by AI */
+    }
+}
+
+#entrytable{
+    margin: 25px;
+    
+    h2 {
+        text-align: left;
+        font-weight: 700;
+    }
+
+    table{
+        margin: 50px;
+        margin-top: 10px;
+        width: calc(100vw - 100px);
+        
+        td{
+            text-align: left;
+        }
+    }
+}
+
+#signUp{
+    /* height: 50vh; */
+    width: 50vw;
+    position: absolute;
+    transform: translate(50%, 25%);
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 2em;
+    input{
+        width: 75%;
+        font-family: "Poppins", sans-serif;
+        padding: .5em;
+        font-size: small;
+    }
+    button{
+        font-family: "Poppins", sans-serif;
+        width: 75%;
+        background-color: #176b52;
+        color: var(--white);
+    }
 }

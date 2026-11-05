@@ -258,29 +258,28 @@ function darkControl() {
     image.src = imageUrl.href;
 }
 
+// Now, the code for the navbar I guess
+const sidenav = document.querySelector(".sidenav");
 
-// function myFunction() {
-//     var popup = document.getElementById("myPopup");
-//     popup.classList.toggle("show");
-// }
+let sidenavOpen = false;
 
-// function getSelectionText() {
-//     let text = "";
-//     const activeEl = document.activeElement;
-//     const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+function toggleNav(){
+    if (sidenavOpen){
+        sidenav.style.width = "0";
+        sidenavOpen = false;
+    } else{
+        sidenav.style.width = "250px";
+        sidenavOpen = true;
+    }
+}
 
-//     if (
-//         (activeElTagName == "textarea") || (activeElTagName == "input" &&
-//         /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) &&
-//         (typeof activeEl.selectionStart == "number")
-//     ) {
-//         text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
-//     } else if (window.getSelection) {
-//         text = window.getSelection().toString();
-//     }
+// Assisted by AI
+const menuToggle = document.querySelector(".menu-toggle");
+document.addEventListener("click", function(event) {
+    if (!sidenav.contains(event.target) && !menuToggle.contains(event.target)) {
+        closeNav();
+    }
+});
+// Till here
 
-//     return text;
-// }
-
-// document.onmouseup = document.onkeyup = document.onselectionchange = myFunction();
 

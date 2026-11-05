@@ -9,98 +9,109 @@
 </head>
 
 <body>
-    <section id="start">
-        <div id="start-content">
-            <h1>lower_bound vs upper_bound()</h1>
-            <div id="start-enter-button">
-                <a href="#explanation">
-                    Click here to start learning
-                    <div id="lottieAnim">
-                        <script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-                        <dotlottie-wc src="https://lottie.host/d700508a-823e-4070-8089-dc0a08df1420/W5ry4aFqyL.lottie
-    " autoplay loop></dotlottie-wc>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <div class="nighty"></div>
-
-    <section class="explanation" id="lowerboundexplanation">
-        <div id="explanation-pin" class="explanation-pin">
-            <p>Now that you know what <a href="BinarySearch.html" class="inlineref">binary search</a> is, let's explore the built-in C++ functions that use it.</p>
-            <p>The lower bound function works by finding the first value that is not higher than the target. As we know the list is already sorted, so it uses binary search, to find the highest number accepting the condition. The "first value" means that if the list is {10, 20, 30, 30, 40, 50} and the right number is 30, it will return the index of the first 30 and not any of the others.</p>
-            <p>This means that the function returns an iterator and not a value.</p>
-            <p>Below we will explore some of its capabalities and the syntax.</p>
-        </div>
-    </section>
-
-    <section class="explanation" id="lowerboundcode">
-        <div id="explanation-pin2" class="explanation-pin">
-            <h1>Code</h1>
-            <p>This is the lower bound syntax.</p>
-            <pre>
-vector<int> v = {10, 30, 31, 40}
-int answer = *lower_bound(v.begin(), v.end(), 30);
-</pre>
-            <p>Honestly, I recommend learning the basics of C++ if you haven't already, but I will still do my best to explain it to you as beginner-friendly way as possible</p>
-            <p>First of all, a vector. The function needs a vector to work properly. A vector is basically an array on steroids. It does not need a fixed size. Instead you can add or remove elements to and from it quite easily. Many C++ functions need a vector to work.</p>
-            <p>Lots of those functions though, do not return the straightforward answer. That's actually quite smart as we will see. Instead, they return an iterator. We do not typically use them as they are, and to access them, we use the dereference operator. It's job is to find the value that the iterator is pointing to. Imagine the function is a person, who solves equations. Instead of telling you the answer, he draws an arrow towards the answer. That is the iterator. With the arrow alone, you cannot make sense, but with the whole picture you see where the arrow is pointing and understand.</p>
-            <p>Now, that we understand the iterator logic, let's look once more at the second line.</p>
-            <p>We have an asterisk (*) before the function. That is the dereference operator. Then we have the function itself. It has 3 arguements. The first one is the beginning of the search range. Then the end of it. Then the target.</p>
-            <p>That's it actually...</p>
-            <p>Oh, but what happens if it finds nothing? It returns v.end. Obviously, v is the name of the vector so if it was called Collywobbles, it would return Collywobbles.end. <i>Don't call it Collywobbles though.</i> So you should check using if ("thefunctionresult" != v.end)</p>
-            <p>Next, we'll take a look at upper_bound...</p>
-        </div>
-    </section>
-
-    <section class="explanation" id="upperboundexplanation">
-        <div id="explanation-pin" class="explanation-pin">
-            <p>Next, we'll take a look at the upper bound function</p>
-            <p>The upper bound is extremely similar to the lower bound..</p>The condition is different. In lower bound, the target can be equal to the output, while the upper bound cannot.
-            <p>The main difference is the first value that is greater than the target. </p>
-            <p>For example {1, 2, 3, 4, 5} upper_bound 3 is going to be 4</p>
-        </div>
-    </section>
     
-    <section class="explanation" id="upperboundcode">
-        <div id="explanation-pin2" class="explanation-pin">
-            <h1>Code</h1>
-            <p>This is the upper bound syntax.</p>
-            <pre>
-vector<int> v = {10, 30, 31, 40}
-int answer = *upper_bound(v.begin(), v.end(), 30);
-</pre>
-            <p>As you saw, it the same idea, and syntax, but the result will be different (31).</p>
-            <p>Next you will solve a quiz to check your understanding..</p>
-        </div>
-    </section>
+    <div class="sidenav" id="menucontainer">
+        <a href="#lowerboundexplanation">Lower Bound Introduction</a>
+        <a href="#lowerboundcode">Lower Bound Implementation</a>
+        <a href="#upperboundexplanation">Upper Bound Introduction</a>
+        <a href="#upperboundcode">Upper Bound Implementation</a>
+    </div>
+    <span onclick="toggleNav()" class="menu-toggle"><iframe src="https://lottie.host/embed/f01a5da4-c3ed-4c7b-a357-13aa20e68bb4/mJbVdVumg7.lottie"></iframe></span>
 
-    <section class="explanation" id="upperlowerboundquiz">
-        <div class="explanation-pin">
-            <h1>Quiz</h1>
-            <p id="question"></p>
-            <div class="gridQuiz">
-                <div class="row">
-                    <button id="buttonChoice1" onclick="choose(1)"><div class="keyGuide">1</div><div id="Choice1">Choice 1</div></button>
-                    <button id="buttonChoice2" onclick="choose(2)"><div class="keyGuide">2</div><div id="Choice2">Choice 2</div></button>
-                </div>
-                <div class="row">
-                    <button id="buttonChoice3" onclick="choose(3)"><div class="keyGuide">3</div><div id="Choice3">Choice 3</div></button>
-                    <button id="buttonChoice4" onclick="choose(4)"><div class="keyGuide">4</div><div id="Choice4">Choice 4</div></button>
+    <div class="main">
+        <section id="start">
+            <div id="start-content">
+                <h1>lower_bound vs upper_bound()</h1>
+                <div id="start-enter-button">
+                    <a href="#explanation">
+                        Click here to start learning
+                        <div id="lottieAnim">
+                            <script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
+                            <dotlottie-wc src="https://lottie.host/d700508a-823e-4070-8089-dc0a08df1420/W5ry4aFqyL.lottie
+        " autoplay loop></dotlottie-wc>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <button id="next" onclick="nextQ()">
-                <div class="keyGuide">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="90 90 120 120"><rect id="rect-ko2gya5arrj" fill="none" width="99.122354" height="99.122354" rx="26" ry="26" stroke="rgb(255,255,255)" stroke-width="15" transform="translate(100.438823 100.438823)"></rect><path id="path-5sw2l12smkr" d="M128.08232,129.746093L128.08232,162.481814L172.081945,162.481814L159.68109,150.08096" fill="none" stroke="rgb(255,255,255)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M172.081945,162.481814L158.489581,176.074179L172.081945,162.481814Z" fill="none" stroke="rgb(255,255,255)" stroke-width="8" id="path-e7uxilf4d5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </section>
+
+        <div class="nighty"></div>
+
+        <section class="explanation" id="lowerboundexplanation">
+            <div id="explanation-pin" class="explanation-pin">
+                <p>Now that you know what <a href="BinarySearch.html" class="inlineref">binary search</a> is, let's explore the built-in C++ functions that use it.</p>
+                <p>The lower bound function works by finding the first value that is not higher than the target. As we know the list is already sorted, so it uses binary search, to find the highest number accepting the condition. The "first value" means that if the list is {10, 20, 30, 30, 40, 50} and the right number is 30, it will return the index of the first 30 and not any of the others.</p>
+                <p>This means that the function returns an iterator and not a value.</p>
+                <p>Below we will explore some of its capabalities and the syntax.</p>
+            </div>
+        </section>
+
+        <section class="explanation" id="lowerboundcode">
+            <div id="explanation-pin2" class="explanation-pin">
+                <h1>Code</h1>
+                <p>This is the lower bound syntax.</p>
+                <pre>
+    vector<int> v = {10, 30, 31, 40}
+    int answer = *lower_bound(v.begin(), v.end(), 30);
+    </pre>
+                <p>Honestly, I recommend learning the basics of C++ if you haven't already, but I will still do my best to explain it to you as beginner-friendly way as possible</p>
+                <p>First of all, a vector. The function needs a vector to work properly. A vector is basically an array on steroids. It does not need a fixed size. Instead you can add or remove elements to and from it quite easily. Many C++ functions need a vector to work.</p>
+                <p>Lots of those functions though, do not return the straightforward answer. That's actually quite smart as we will see. Instead, they return an iterator. We do not typically use them as they are, and to access them, we use the dereference operator. It's job is to find the value that the iterator is pointing to. Imagine the function is a person, who solves equations. Instead of telling you the answer, he draws an arrow towards the answer. That is the iterator. With the arrow alone, you cannot make sense, but with the whole picture you see where the arrow is pointing and understand.</p>
+                <p>Now, that we understand the iterator logic, let's look once more at the second line.</p>
+                <p>We have an asterisk (*) before the function. That is the dereference operator. Then we have the function itself. It has 3 arguements. The first one is the beginning of the search range. Then the end of it. Then the target.</p>
+                <p>That's it actually...</p>
+                <p>Oh, but what happens if it finds nothing? It returns v.end. Obviously, v is the name of the vector so if it was called Collywobbles, it would return Collywobbles.end. <i>Don't call it Collywobbles though.</i> So you should check using if ("thefunctionresult" != v.end)</p>
+                <p>Next, we'll take a look at upper_bound...</p>
+            </div>
+        </section>
+
+        <section class="explanation" id="upperboundexplanation">
+            <div id="explanation-pin" class="explanation-pin">
+                <p>Next, we'll take a look at the upper bound function</p>
+                <p>The upper bound is extremely similar to the lower bound..</p>The condition is different. In lower bound, the target can be equal to the output, while the upper bound cannot.
+                <p>The main difference is the first value that is greater than the target. </p>
+                <p>For example {1, 2, 3, 4, 5} upper_bound 3 is going to be 4</p>
+            </div>
+        </section>
+        
+        <section class="explanation" id="upperboundcode">
+            <div id="explanation-pin2" class="explanation-pin">
+                <h1>Code</h1>
+                <p>This is the upper bound syntax.</p>
+                <pre>
+    vector<int> v = {10, 30, 31, 40}
+    int answer = *upper_bound(v.begin(), v.end(), 30);
+    </pre>
+                <p>As you saw, it the same idea, and syntax, but the result will be different (31).</p>
+                <p>Next you will solve a quiz to check your understanding..</p>
+            </div>
+        </section>
+
+        <section class="explanation" id="upperlowerboundquiz">
+            <div class="explanation-pin">
+                <h1>Quiz</h1>
+                <p id="question"></p>
+                <div class="gridQuiz">
+                    <div class="row">
+                        <button id="buttonChoice1" onclick="choose(1)"><div class="keyGuide">1</div><div id="Choice1">Choice 1</div></button>
+                        <button id="buttonChoice2" onclick="choose(2)"><div class="keyGuide">2</div><div id="Choice2">Choice 2</div></button>
+                    </div>
+                    <div class="row">
+                        <button id="buttonChoice3" onclick="choose(3)"><div class="keyGuide">3</div><div id="Choice3">Choice 3</div></button>
+                        <button id="buttonChoice4" onclick="choose(4)"><div class="keyGuide">4</div><div id="Choice4">Choice 4</div></button>
+                    </div>
                 </div>
-                <div>Continue</div>
-            </button>
-            <p id="Done"></p>
-            <p id="feedback"></p>
-        </div>
-    </section>
+                <button id="next" onclick="nextQ()">
+                    <div class="keyGuide">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="90 90 120 120"><rect id="rect-ko2gya5arrj" fill="none" width="99.122354" height="99.122354" rx="26" ry="26" stroke="rgb(255,255,255)" stroke-width="15" transform="translate(100.438823 100.438823)"></rect><path id="path-5sw2l12smkr" d="M128.08232,129.746093L128.08232,162.481814L172.081945,162.481814L159.68109,150.08096" fill="none" stroke="rgb(255,255,255)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M172.081945,162.481814L158.489581,176.074179L172.081945,162.481814Z" fill="none" stroke="rgb(255,255,255)" stroke-width="8" id="path-e7uxilf4d5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <div>Continue</div>
+                </button>
+                <p id="Done"></p>
+                <p id="feedback"></p>
+            </div>
+        </section>
+    </div>
     
     <script src="MCQQuiz.js"></script>
     <script src="script.js"></script>
