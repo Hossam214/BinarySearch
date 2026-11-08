@@ -19,6 +19,7 @@ body::-webkit-scrollbar {
 html, body {
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
 }
 
 
@@ -576,6 +577,17 @@ button:active{
     background-color: var(--terminal-bg-color);
     transition: 0.5s;
     width: 0;
+    /* width: 30%; */
+
+    .links{
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 1em;
+        padding-top: 7em;
+        padding-bottom: 10em;
+    }
 
 
     /* (⊙ˍ⊙) */
@@ -585,6 +597,15 @@ button:active{
 
     a{
         display: block;
+        margin: 1em;
+        color: var(--white);
+        font-weight: 700;
+
+    }
+
+    a:hover{
+        transition: 0.5s;
+        font-size: 1.2em;
     }
 
 }
@@ -592,7 +613,7 @@ button:active{
 .menu-toggle{
     position: fixed;
     left: 0;
-    top: 50px;
+    top: 20px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     background-color: var(--white);
@@ -650,4 +671,14 @@ button:active{
         background-color: #176b52;
         color: var(--white);
     }
+}
+
+#up{
+    width: 50px;
+    height: 50px;
+
+    z-index: 9999;
+    position: fixed;
+    left: 10px;
+    bottom: 0px;
 }

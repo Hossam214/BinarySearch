@@ -2,4 +2,176 @@
 <head>
     <title>Prime Numbers</title>
     <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Sharp:ital,wght@0,100..900;1,100..900&family=Rancho&family=Roboto:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    
 </head>
+<body>
+    <div class="nighty"></div>
+    <section id="start">
+        <div id="start-content">
+            <h1>Prime Numbers</h1>
+            <div id="start-enter-button">
+                <a href="#primenumberexplanation">
+                    Click here to start learning
+                    <div id="lottieAnim">
+                        <script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
+                        <dotlottie-wc src="https://lottie.host/d700508a-823e-4070-8089-dc0a08df1420/W5ry4aFqyL.lottie
+    " autoplay loop></dotlottie-wc>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <button onclick="up()" id="up">UP</button>
+
+    <section class="explanation" id="primenumberexplanation">
+        <div id="explanation-pin" class="explanation-pin">
+            <p>If you like math, then you certainly know about prime numbers</p>
+            <p>We'll assume you detest math, just for the sake of inclusivity, and actually this doesn't mean you need to be a math geek, to code, but this lesson is about a mathematical concept, so math surely will help.</p>
+            <p><i>And anyway you better learn math because there will be a lot more of these later on.</i></p>
+            <p>Anyway, so as you <i>probably</i> know, prime numbers have only wo factors, the number and 1</p>
+            <p>For example, 5 is prime because it can only be factorised to 5 and 1, whereas 4 can be factorised to 1 * 4, and also 2 * 2.</p>
+            <p>Now, the first thing that <i>should</i> come to your mind, is that that means even numbers are all unprime (or composite to be accurately speaking), and any prime should be odd. That's right, if we ignore 2, but yes, 2 is the only even prime.</p>
+            <p>Now, if we work our way through, we'll find it is the same for every single other number.</p>
+            <p>For example, any number divisible by 3 is composite except for 3 itself, and so on.</p>
+            <p>Also, number 1 technically isn't prime, because it only has 1 factor, not two.</p>
+            <p>Prime numbers are actually really useful in our daily lives, so we'll explore them a little before jumping to the code.</p>
+            <p>Just remember that the code in this lesson, is not actually the most efficient way, but it is used for demonstration.</p>
+        </div>
+    </section>
+
+    <section class="explanation" id="primeusages">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Usages</h1>
+            <p>Perhaps this is something about my background, but the first things I think about using prime numbers are encryption methods</p>
+            <p>I won't try to take a deep dive into how they work right now, because it can get <b>really</b> complicated, <b>really</b> quickly, but IF you want to learn more, you always have Google and YouTube.</p>
+            <p>Prime numbers, are the main concept behind the <a href="https://www.cryptool.org/en/cto/rsa-step-by-step/" class="inlineref">RSA algorithm</a>. The RSA algorithm is what we use every day, on the internet alongside the <a href="https://networklessons.com/miscellaneous/introduction-to-diffie-hellman-key-exchange" class="inlineref">Diffie-Hellman algorithm.</a>. Obviously, there are also other algorithms, but most also use prime numbers and all their names don't really matter that much. </p>
+            <p>Prime numbers are also used in error-correcting codes like for example <a href="https://www.geeksforgeeks.org/digital-logic/what-is-reed-solomon-code/">Reed Solomon codes</a>, but that could be a lesson on its own, to actually comprehend how it works.</p>
+            <br><p>You might argue this isn't a real use, but it does have a huge role in number theory, and abstract mathematical concepts, but if you come to think of it, number theory <i>occasionally</i> at least, is used in something useful.</p>
+
+            <p>Now, our coding task will be counting the number of prime numbers in a range of 1 to any user input integer</p>
+        </div>
+    </section>
+
+    <section class="explanation" id="primecountercode">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Code</h1>
+            <p>First of all the code for the user input.</p>
+            <pre>
+int x;
+cin << x;</pre>
+            <p>Now, the user inputs a number and is stored in x, as an integer.</p>
+            <p>Now the logic behind the following code will be using a simple approach, which is to check if x can be divided by any of the number smallers than it. If yes, it is composite, if no, it is prime.</p>
+            <pre>
+bool prime = true;
+for (int i = 0; i < x; i++){
+    if (x % i == 0) {
+        prime = false;
+        break;
+    }
+}
+cout << prime ? "Prime" : "Composite"; // You can ignore this line, it just outputs prime if it prime == true, and composite if prime == false. It's called a ternary operator by the way.
+</pre>
+            <p>Now, that would certainly work just fine for small numbers, because it will only need a limited number of checks to do, and will occasionally finish early, because of the break (it stops the loop, when the condition is met), but this is unnecessarily slow.</p>
+        </div>
+    </section>
+
+    <section class="explanation" id="primecountercodev2">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Code v2</h1>
+            <p>Now one area of improvement would be in the loop itself. It checks for x times, but as we know, factors have to be either equal (as in 2 * 2, or 3 * 3) or, one WILL be greater than the other (like 5 * 3 for instance). Now, how do we tell where the numbers will simply be repeating?</p>
+            <p>The answer lies in the square root of x. The square root is the number that when multiplied by itself, will result in x. For example for 4 it is 2, for 9 it is 3 and so on. Now, mathematically, that has to be the point where any number will be from the bigger numbers, and those aren't worth checking, because we have already checked their pairs, the smaller numbers.</p>
+            <p>The thing is though, using the square root can be quite a hassle in C++, since it takes time, so a faster way would be to do the opposite</p>
+            <p>i * i  <= x. If you think it through, you will notice that i will never pass the square root.</p>
+            <pre>
+bool prime = true;
+for (int i = 2; i * i <= x; i++){
+    if (x % i == 0) {
+        prime = false;
+        break;
+    }
+}
+cout << prime ? "Prime" : "Composite"; // You can ignore this line, it just outputs prime if it prime == true, and composite if prime == false. It's called a ternary operator by the way.
+</pre>
+            <p>Using the exact same code, with just that change, makes a HUGE time difference, but we can still improve more.</p>
+            <p>Next lesson we will discuss the Sieve of Eratosthenes, an ancient method that's whole purpose is to find the prime numbers in a range.</p>
+        </div>
+    </section>
+    
+    <section class="explanation" id="functions">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Functions</h1>
+            <p>Just in case you haven't noticed we still haven't got to our target. Our code only tells if a number is prime or not, but doesn't actually count.</p>
+            <p>This is why we have to use functions. <i>We don't really have to, but it will make the code way more readable.</i> Functions are pretty much anything you see with two parantheses after it. Some are builtin, and others can be userdefined, but they are the same idea. You have all this code, that you want to reuse, so you make a function and call it, instead of copying and pasting all this code.</p>
+            <p>For our task, we have to make a function with our previous code to check if a number is prime, then return if it is.</p>
+            <p>Let's try it out:</p>
+<pre>
+bool prime(int x){
+    bool prime = true;
+    for (int i = 2; i * i <= x; i++){
+        if (x % i == 0) {
+            prime = false;
+            break;
+        }
+    }
+    return prime;
+}
+</pre>
+        <p>Don't worry the code we added is really simple. The first line is function declaration, and since we have to have input, we added an arguement (int x). In the end, we added a line (return prime) to return the result after finding it.</p>
+        </div>
+    </section>
+
+    <section class="explanation" id="forLoop">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>For Loop</h1>
+            <p>Now, we just want to put it in a loop. Previously, we used a while loop, but here a for loop would be more suitable. <i>Btw, a for loop COULD be used as a while loop, and vice versa, but it simply isn't ideal. Like you could do a while loop that adds an iterator, instead of for, but WHY!? You could also add a condition to a for loop, instead of adding every time, but it's simply ridiculous (*>﹏<*)</i></p>
+            <p>We also used a for loop in the previous function but since it wasn't explained, this is the perfect opportunity to explain it.</p>
+            <p>Declaring a for loop needs 3 things. First, we declare the iterator (usually called i but you could call it breakingBad if you want). Secondly, we need a condition, for example i < 8. The loop will work as long is i < 8. Finally, we add the increment line (not necessarily increment as we will see). This is typically i++, but if you <i>really</i> want, you could just go i-- or i+=5 etc.</p>
+            <p>Here is the syntax for a for loop.</p>
+            <pre>for (int i = 0; i < maxNumber; i++) {whatever will be looped}</pre>
+            <p>One thing to remember is that i here will start at 0 at end at (maxNumber - 1). If maxNumber is 5, and i = 5, then the condition would be false, and it will stop iterating.</p>
+            <p>What if you need a normal counter though? Well there are 2 ways</p>
+            <p>- Either you just call i + 1 instead of i</p>
+            <p>- OR you could play it smart, and go (int i = 1; i <= maxNumber; i++)</p>
+            <p>You choose for yourself though.</p>
+        </div>
+    </section>
+    
+    <section class="explanation" id="primecountercodev4">
+        <div id="explanation-pin2" class="explanation-pin">
+            <h1>Final Code</h1>
+            <p>Now, let's put everything together.</p>
+            <p>First we need our function, then in the main code, we will take input, and loop based on it. Finally we output the number of prime numbers.</p>
+            <pre>
+#include &ltiostream>
+using namespace std;
+
+bool prime(int x){
+    bool prime = true;
+    for (int i = 2; i * i <= x; i++){
+        if (x % i == 0) {
+            prime = false;
+            break;
+        }
+    }
+    return prime;
+}
+
+int main(){
+    cout << "Enter your number" << endl;
+    int x; cin >> x;
+    int primeNo = 0; 
+    for (int i = 2; i < x; i++){
+        if (prime(i)) {primeNo++;}
+    }
+    cout << "There are " << primeNo << " prime numbers between 0 and " << x << " (not including x)";
+}</pre>
+            <p>The things we added here different are mainly aesthetics, like endl, which adds a new line. As for the first two lines they are for the code to run, as we explained before</p>
+        </div>
+    </section>
+
+    <script src="MCQQuiz.js"></script>
+    <script src="script.js"></script>
+</body>
