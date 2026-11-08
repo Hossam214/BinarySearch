@@ -462,6 +462,9 @@ input:hover{
 #nextstep{
     display: flex;
     justify-content: space-around;
+    button{
+        margin: 1em;
+    }
 }
 
 .inlineref{
@@ -571,13 +574,15 @@ button:active{
 .sidenav{
     height: 100%;
     position: fixed;
-    z-index: 9999;
+    z-index: 10000;
     top: 0;
     left: 0;
-    background-color: var(--terminal-bg-color);
+    /* background-color: var(--terminal-bg-color); */
+    background-color: #1112149c;
+    backdrop-filter: blur(25px) saturate(100%);
     transition: 0.5s;
     width: 0;
-    /* width: 30%; */
+    text-align: left;
 
     .links{
         height: 100vh;
@@ -587,8 +592,8 @@ button:active{
         padding: 1em;
         padding-top: 7em;
         padding-bottom: 10em;
-    }
-
+    } 
+    /* No idea why it glitches like that! If you have any idea why please tell me. */
 
     /* (⊙ˍ⊙) */
     /* Stupid me didn't write this overflow line, thinking it was irrelevant, but AI told me otherwise. It sure is relevant, because without it the <a> stay outside the navbar */
@@ -681,4 +686,28 @@ button:active{
     position: fixed;
     left: 10px;
     bottom: 0px;
+}
+
+.JSquestionsarray,
+.JSanswersarray,
+.JSchoicesarray {
+    visibility: hidden;
+}
+
+#Eratosthenes{
+    width: 300px;
+    height: 300px;
+}
+
+.figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    p{
+        font-size: .5em;
+        font-weight: 700;
+    }
 }

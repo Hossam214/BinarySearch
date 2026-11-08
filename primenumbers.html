@@ -26,6 +26,22 @@
 
     <button onclick="up()" id="up">UP</button>
 
+    <div class="sidenav" id="menucontainer">
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="#primenumberexplanation">Prime Numbers Introduction</a>
+            <a href="#primeusages">Usages</a>
+            <a href="#primecountercode">Code v1</a>
+            <a href="#primecountercodev2">Code v2</a>
+            <a href="#functions">Functions</a>
+            <a href="#forLoop">For Loop</a>
+            <a href="#primecountercodev4">Final Code</a>
+            <a href="#Quiz">Quiz</a>
+        </div>
+    </div>
+    <span onclick="toggleNav()" class="menu-toggle"><iframe src="https://lottie.host/embed/f01a5da4-c3ed-4c7b-a357-13aa20e68bb4/mJbVdVumg7.lottie"></iframe></span>
+        
+
     <section class="explanation" id="primenumberexplanation">
         <div id="explanation-pin" class="explanation-pin">
             <p>If you like math, then you certainly know about prime numbers</p>
@@ -48,7 +64,7 @@
             <p>Perhaps this is something about my background, but the first things I think about using prime numbers are encryption methods</p>
             <p>I won't try to take a deep dive into how they work right now, because it can get <b>really</b> complicated, <b>really</b> quickly, but IF you want to learn more, you always have Google and YouTube.</p>
             <p>Prime numbers, are the main concept behind the <a href="https://www.cryptool.org/en/cto/rsa-step-by-step/" class="inlineref">RSA algorithm</a>. The RSA algorithm is what we use every day, on the internet alongside the <a href="https://networklessons.com/miscellaneous/introduction-to-diffie-hellman-key-exchange" class="inlineref">Diffie-Hellman algorithm.</a>. Obviously, there are also other algorithms, but most also use prime numbers and all their names don't really matter that much. </p>
-            <p>Prime numbers are also used in error-correcting codes like for example <a href="https://www.geeksforgeeks.org/digital-logic/what-is-reed-solomon-code/">Reed Solomon codes</a>, but that could be a lesson on its own, to actually comprehend how it works.</p>
+            <p>Prime numbers are also used in error-correcting codes like for example <a href="https://www.geeksforgeeks.org/digital-logic/what-is-reed-solomon-code/" class="inlineref">Reed Solomon codes</a>, but that could be a lesson on its own, to actually comprehend how it works.</p>
             <br><p>You might argue this isn't a real use, but it does have a huge role in number theory, and abstract mathematical concepts, but if you come to think of it, number theory <i>occasionally</i> at least, is used in something useful.</p>
 
             <p>Now, our coding task will be counting the number of prime numbers in a range of 1 to any user input integer</p>
@@ -119,7 +135,7 @@ bool prime(int x){
     return prime;
 }
 </pre>
-        <p>Don't worry the code we added is really simple. The first line is function declaration, and since we have to have input, we added an arguement (int x). In the end, we added a line (return prime) to return the result after finding it.</p>
+        <p>Don't worry the code we added is really simple. The first line is function declaration (we have to add the return type in this case a boolean, but it is often void, which returns nothing), and since we have to have input, we added an arguement (int x). In the end, we added a line (return prime) to return the result after finding it.</p>
         </div>
     </section>
 
@@ -169,6 +185,78 @@ int main(){
     cout << "There are " << primeNo << " prime numbers between 0 and " << x << " (not including x)";
 }</pre>
             <p>The things we added here different are mainly aesthetics, like endl, which adds a new line. As for the first two lines they are for the code to run, as we explained before</p>
+        </div>
+    </section>
+
+    <section class="explanation" id="upperlowerboundquiz">
+        <ul>
+            <li class="JSquestionsarray">Which number is prime?</li>
+            <li class="JSquestionsarray">Which number is prime?</li>
+            <li class="JSquestionsarray">Which number is composite?</li>
+            <li class="JSquestionsarray">Using our previous function, how many prime numbers would it return at x = 9</li>
+            <li class="JSquestionsarray">Which algorithm does not use prime numbers</li>
+            <li class="JSquestionsarray">What is the RSA algorithm used in?</li>
+            <li class="JSquestionsarray">What is a valid function declaration?</li>
+            <li class="JSquestionsarray">Would this function work? void function(int x) {return x;}</li>
+            <li class="JSquestionsarray">Is the condition i * i < 9, equivalent to the condition i <= sqrt(9)</li>
+            <li class="JSquestionsarray">What does the Reed Solomon Code do?</li>
+            <li class="JSquestionsarray">Is 1 prime?</li>
+            <li class="JSquestionsarray">Is 0 prime?</li>
+            <li class="JSquestionsarray">Is 2 prime?</li>
+        </ul>
+
+        <ul>
+            <li class="JSanswersarray">4</li>
+            <li class="JSanswersarray">1</li>
+            <li class="JSanswersarray">4</li>
+            <li class="JSanswersarray">2</li>
+            <li class="JSanswersarray">4</li>
+            <li class="JSanswersarray">2</li>
+            <li class="JSanswersarray">3</li>
+            <li class="JSanswersarray">2</li>
+            <li class="JSanswersarray">2</li>
+            <li class="JSanswersarray">1</li>
+            <li class="JSanswersarray">2</li>
+            <li class="JSanswersarray">2</li>
+            <li class="JSanswersarray">1</li>
+        </ul>
+        <ul>                
+            <li class="JSchoicesarray">1,0,4,97</li>
+            <li class="JSchoicesarray">91,58,63,41</li>
+            <li class="JSchoicesarray">5,29,59,39</li>
+            <li class="JSchoicesarray">9,4,5,2</li>
+            <li class="JSchoicesarray">RSA,Diffie-Hellman,Reed Solomon Codes,C++</li>
+            <li class="JSchoicesarray">Number Theory,Cybersecurity,Decoding ciphers,Software development</li>
+            <li class="JSchoicesarray">function void(arg){},void function(arg){},void function(int arg){},function void(int arg)</li>
+            <li class="JSchoicesarray">Yes,No,hide,hide</li>
+            <li class="JSchoicesarray">Yes,No,hide,hide</li>
+            <li class="JSchoicesarray">Error Correction,Cybersecurity,Encoding,Networking</li>
+            <li class="JSchoicesarray">Yes,No,hide,hide</li>
+            <li class="JSchoicesarray">Yes,No,hide,hide</li>
+            <li class="JSchoicesarray">Yes,No,hide,hide</li>
+        </ul>
+
+        <div class="explanation-pin">
+            <h1>Quiz</h1>
+            <p id="question"></p>
+            <div class="gridQuiz">
+                <div class="row">
+                    <button id="buttonChoice1" onclick="choose(1)"><div class="keyGuide">1</div><div id="Choice1">Choice 1</div></button>
+                    <button id="buttonChoice2" onclick="choose(2)"><div class="keyGuide">2</div><div id="Choice2">Choice 2</div></button>
+                </div>
+                <div class="row">
+                    <button id="buttonChoice3" onclick="choose(3)"><div class="keyGuide">3</div><div id="Choice3">Choice 3</div></button>
+                    <button id="buttonChoice4" onclick="choose(4)"><div class="keyGuide">4</div><div id="Choice4">Choice 4</div></button>
+                </div>
+            </div>
+            <button id="next" onclick="nextQ()">
+                <div class="keyGuide">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="90 90 120 120"><rect id="rect-ko2gya5arrj" fill="none" width="99.122354" height="99.122354" rx="26" ry="26" stroke="rgb(255,255,255)" stroke-width="15" transform="translate(100.438823 100.438823)"></rect><path id="path-5sw2l12smkr" d="M128.08232,129.746093L128.08232,162.481814L172.081945,162.481814L159.68109,150.08096" fill="none" stroke="rgb(255,255,255)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M172.081945,162.481814L158.489581,176.074179L172.081945,162.481814Z" fill="none" stroke="rgb(255,255,255)" stroke-width="8" id="path-e7uxilf4d5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </div>
+                <div>Continue</div>
+            </button>
+            <p id="Done"></p>
+            <p id="feedback"></p>
         </div>
     </section>
 

@@ -2,7 +2,7 @@
 input = document.getElementById("answer");
 question = document.getElementById("question-text");
 btn = document.getElementById("btn");
-next = document.getElementById("Next");
+next = document.getElementById("next");
 result = document.getElementById("result");
 feedbck = document.getElementById("feedback");
 nextstep = document.getElementById("nextstep");

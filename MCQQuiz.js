@@ -5,7 +5,6 @@ question = document.getElementById("question");
 done = document.getElementById("Done");
 feedbck = document.getElementById("feedback");
 
-
 const buttonsText = [
     document.getElementById("Choice1"),
     document.getElementById("Choice2"),
@@ -25,40 +24,24 @@ next.style.display = "none";
 let progress = 0;
 let MCQscore = 0;
 
-const MCQquestions = [
-    "lower_bound(3) on {1,3,5,7,9}.<br>What is the result?",
-    "?_bound(66) on {30, 53, 65, 66, 70} is 66",
-    "upper_bound(5) on {1,2,3,4,5} results in:",
-    "What is the index of the result? upper_bound(5) on {1,2,5,5,5,6}?<br>Remember that the index starts from zero, so index of 1 is 0, index of 3 is 1, etc.",
-    "upper_bound finds the last least element higher than the target.<br>True or False?",
-    "cout << upper_bound(v.begin, v.end, 5);<br>Is this correct?",
-    "What is the dereference operator?",
-    "Will this work properly - logicwise not syntax?<br>upper_bound({1,2,2,1,3})"
-]
+let MCQquestions = [];
+let length = document.getElementsByClassName("JSquestionsarray").length;
+for (let i = 0; i < length; i++){
+    MCQquestions.push(document.getElementsByClassName("JSquestionsarray")[i].textContent);
+}
+
 
 question.innerHTML = MCQquestions[progress];
 
-const MCQanswers = [
-    2,
-    1,
-    4,
-    2,
-    2,
-    2,
-    3,
-    2
-]
+let MCQanswers = [];
+for (let i = 0; i < length; i++){
+    MCQanswers.push(document.getElementsByClassName("JSanswersarray")[i].textContent);
+}
 
-const choices = [
-    [1,3,5,"v.end"],
-    ["lower", "upper", "hide", "hide"],
-    [1,3,5,"v.end"],
-    [0,2,3,5],
-    ["true", "false", "hide", "hide"],
-    ["true", "false", "hide", "hide"],
-    ["&", "$", "*", "~"],
-    ["Yes", "No", "It depends", "hide"]
-]
+let choices = [];
+for (let i = 0; i < length; i++){
+    choices.push(document.getElementsByClassName("JSchoicesarray")[i].textContent.split(","));
+}
 
 // AI detected a syntax error here. Just for the honesty.
 buttonsText.forEach((button, i) => {
@@ -67,7 +50,6 @@ buttonsText.forEach((button, i) => {
 
 
 // Somehow my stupid brain wrote this whole thing and wrote keypress instead of keydown :( Used AI here to find that. I am so bad at JS
-
 document.body.addEventListener("keydown", function(event){
 
     // I had this part written in a different wording, but discluded .target. AI told me to add it when I noticed some bugs happening when the user presses with their mouse, and THEN their enter key.
@@ -91,10 +73,11 @@ document.body.addEventListener("keydown", function(event){
 
 
 let stylingchoice = 0;
+let choiceMade = false;
 function choose(x){
     stylingchoice = x;
     if (x==MCQanswers[progress]){
-        MCQscore++;
+        if (!choiceMade) {MCQscore++;}
         buttons[x-1].classList.add('correct');
     } else{
         buttons[stylingchoice-1].classList.add('incorrect');
@@ -102,14 +85,18 @@ function choose(x){
     buttons[MCQanswers[progress]-1].classList.add('correct');
     next.style.display = "block";
     next.focus();
+    choiceMade = true;
 }
 
 let finished = false;        
 function nextQ(){
+    choiceMade = false;
     next.style.display = "none";
-    buttons[stylingchoice-1].classList.remove('correct');
-    buttons[MCQanswers[progress]-1].classList.remove('correct');
-    buttons[stylingchoice-1].classList.remove('incorrect');
+
+    buttons.forEach((button) => {
+        button.classList.remove('incorrect');
+        button.classList.remove('correct');
+    });
 
     if (progress < MCQquestions.length - 1) {
         progress++;

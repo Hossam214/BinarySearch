@@ -245,7 +245,7 @@ function darkControl() {
         body.style.cssText = "--normal-font-color: #edf5ff; --normal-bg-color: rgb(25, 25, 25)";
         dark = true;
     } else{
-        body.style.cssText = "--normal-font-color: rgb(25, 25, 25); --normal-bg-color: #edf5ff";
+        body.style.cssText = "--normal-font-color: rgb(25, 25, 25); --normal-bg-color: #eae9ea";
         dark=false;
     }
 
@@ -276,8 +276,8 @@ function toggleNav(){
 // Assisted by AI
 const menuToggle = document.querySelector(".menu-toggle");
 document.addEventListener("click", function(event) {
-    if (!sidenav.contains(event.target) && !menuToggle.contains(event.target)) {
-        closeNav();
+    if ((!sidenav.contains(event.target) && !menuToggle.contains(event.target)) && sidenavOpen) {
+        toggleNav();
     }
 });
 // Till here
