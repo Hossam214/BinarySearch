@@ -283,5 +283,6 @@ document.addEventListener("click", function(event) {
 // Till here
 
 function up(){
+    // credit: https://iamdustan.com/smoothscroll/
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
 }
