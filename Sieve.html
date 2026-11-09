@@ -30,20 +30,49 @@
     <div class="sidenav" id="menucontainer">
         <div class="links">
             <a href="index.html">Home</a>
-            <a href="#sieveorigin">Prime Numbers Introduction</a>
+            <a href="#eratothenesintro">Eratosthenes Introduction</a>
+            <a href="#sieveintro">Sieve Introduction</a>
             
         </div>
     </div>
     <span onclick="toggleNav()" class="menu-toggle"><iframe src="https://lottie.host/embed/f01a5da4-c3ed-4c7b-a357-13aa20e68bb4/mJbVdVumg7.lottie"></iframe></span>
         
 
-    <section class="explanation" id="sieveorigin">
+    <section class="explanation" id="eratothenesintro">
         <div id="explanation-pin" class="explanation-pin">
             <p>Eratosthenes is one of the most renowned Greek mathematicians. He lived in the third century BC, (276 BC - 194 BC), and is best known for calculating the Earth's circumference. He was also a geographer, and a philosopher, but today we will discuss one of his mathematical findings.</p>
             <div class="figure">
                 <p><img id="Eratosthenes" src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Portrait_of_Eratosthenes.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Eratosthenes"></p>
                 <p>Image of Eratosthenes</p>
             </div>
+
+            <p>Today, we will remake his sieve in code.</p>
+            <p>The idea of the sieve is simply to find all the prime numbers between 1 and any specified number.</p>
+            <p>The magic lies in the fact it isn't a complicated mathematical equation. Instead it's an algorithm.</p>
+            <p>By the way, to this very day, nobody has managed to find an algebraic method to find prime numbers. <i>Maybe you'll be the one who finds it though. Nothing is impossible</i>.</p>
+            <p>Let's take a look at the sieve.</p>
+        </div>
+    </section>
+
+    <section class="explanation" id="sieveintro">
+        <div id="explanation-pin" class="explanation-pin">
+            <p>We already touched on the idea of the sieve in the last lesson.</p>
+            <p>The sieve works by making a list of all the numbers we want to check (for simplicity let's take the range 1 - 100), and then mark every composite number. Everything that isn't marked HAS to be prime.</p>
+            <p>Well, perhaps that's a little complicated. Let's give you an example.</p>
+            <p>We start with number 1. We already know it isn't a prime, so we skip it and go to 2.</p>
+            <p>Number 2 wasn't marked, so it is a prime. Every other multiple of 2 is composite though, so we rule every even number other than 2</p>
+            <p>We go to the next unmarked number 3. 3 is prime, and every multiple of 3 will be composite, so we rule them all out.</p>
+            <p>The next unmarked one will be 5, and we keep going like that.</p>
+            <p>Here is an animation to make things easier for you.</p>
+            <div id="figure"><p>For now only it is an image.</p></div>
+            <img src="image.png" alt="">
+        </div>
+    </section>
+
+    <section class="explanation" id="sievecode">
+        <div id="explanation-pin" class="explanation-pin">
+            <p>Now let's do that in code.</p>
+            
         </div>
     </section>
 
