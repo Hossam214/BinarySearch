@@ -8,11 +8,15 @@ Also, while I was in the course, many concepts felt too advanced in the beginnin
 
 Even if, it just needed you to read it a few times, and then you got it. I want this as easy as possible for ANYONE.
 
-Right now, we have the binary search page, lowerupperbound and the index.html.
+Right now, we have the binary search page, lowerupperbound, prime numbers, and i've started working on the Sieve of Eratosthenes and obviously the index.html.
 
 Later, more should be added.
 Have fun then.
 
-When you're done, go back and fire me an email from index.html, to tell me your feedback. I really appreciate anything, since I am quite ambitious with this project, and it is far from finished.
+Please, if you have any recommendations, tell me straight away. I just have this feeling the UI/UX is off, but I can't tell why.
+The sidebar glitches for some reason. I have no idea why. Any help would be appreciated.
+Finally, that sidebar animation is only temporary.
+
+When you're done, go back and fire me an email at , to tell me your feedback. I really appreciate anything, since I am quite ambitious with this project, and it is far from finished.
 
 OK just open my vercel demo. That's it. 
